@@ -220,7 +220,7 @@ void ASofaContext::createSofaContext()
         m_sofaAPI->createScene();
         
         //load ini file
-        FString iniPath = curPath + "Plugins/SofaUE5/Source/ThirdParty/SofaUE5Library/sofa.ini";
+        FString iniPath = curPath + "Plugins/SofaUE5-Renderer/Source/ThirdParty/SofaUE5Library/sofa.ini";
         const char* pathchar = TCHAR_TO_ANSI(*iniPath);
         m_sofaAPI->loadSofaIni(pathchar);
     }
@@ -235,20 +235,20 @@ void ASofaContext::createSofaContext()
     loadDefaultPlugin();
 
 
-    //const char* pathfile = "C:/projects/UnrealEngine/SOFA_test2/Plugins/SofaUE5/Content/SofaScenes/liver.scn";
+    const char* pathfile = "C:/Users/Jagger/Documents/Unreal Projects/SofaTest6/Plugins/SofaUE5-Renderer/Content/SofaScenes/liver.scn";
 
-    if (filePath.FilePath.IsEmpty()) {
+    /*if (filePath.FilePath.IsEmpty()) {
         UE_LOG(SUnreal_log, Warning, TEXT("## ASofaContext: No filePath set."));
         return;
     }
    
-    FString my_filePath = FPaths::ConvertRelativePathToFull(filePath.FilePath);
+    FString my_filePath = FPaths::ConvertRelativePathToFull(filePath.FilePath);*/
     
-    //FString fsFilename = FString(pathfile);
-    //UE_LOG(SUnreal_log, Warning, TEXT("## ASofaContext: scene path: %s"), *fsFilename);
+    FString fsFilename = FString(pathfile);
+    UE_LOG(SUnreal_log, Warning, TEXT("## ASofaContext: scene path: %s"), *fsFilename);
 
-    UE_LOG(SUnreal_log, Warning, TEXT("## ASofaContext: filePath.FilePath, %s"), *my_filePath);
-    const char* pathfile = TCHAR_TO_ANSI(*my_filePath);
+    //UE_LOG(SUnreal_log, Warning, TEXT("## ASofaContext: filePath.FilePath, %s"), *my_filePath);
+    //const char* pathfile = TCHAR_TO_ANSI(*my_filePath);
     int resScene = m_sofaAPI->load(pathfile);
 
     if (resScene > 0) {
@@ -337,9 +337,9 @@ void ASofaContext::loadDefaultPlugin()
     if (m_sofaAPI == nullptr)
         return;
 
-    m_sofaAPI->loadPlugin("C:/projects/UnrealEngine/SOFA_test2/Plugins/SofaUE5/Binaries/ThirdParty/SofaUE5Library/Win64/Sofa.Component.dll");
-    m_sofaAPI->loadPlugin("C:/projects/UnrealEngine/SOFA_test2/Plugins/SofaUE5/Binaries/ThirdParty/SofaUE5Library/Win64/Sofa.GL.Component.dll");
-    m_sofaAPI->loadPlugin("C:/projects/UnrealEngine/SOFA_test2/Plugins/SofaUE5/Binaries/ThirdParty/SofaUE5Library/Win64/Sofa.GUI.Component.dll");
+    m_sofaAPI->loadPlugin("C:/Users/Jagger/Documents/Unreal Projects/SofaTest6/Plugins/SofaUE5-Renderer/Binaries/ThirdParty/SofaUE5Library/Win64/Sofa.Component.dll");
+    m_sofaAPI->loadPlugin("C:/Users/Jagger/Documents/Unreal Projects/SofaTest6/Plugins/SofaUE5-Renderer/Binaries/ThirdParty/SofaUE5Library/Win64/Sofa.GL.Component.dll");
+    m_sofaAPI->loadPlugin("C:/Users/Jagger/Documents/Unreal Projects/SofaTest6/Plugins/SofaUE5-Renderer/Binaries/ThirdParty/SofaUE5Library/Win64/Sofa.GUI.Component.dll");
 
     if (m_isMsgHandlerActivated == true)
         catchSofaMessages();

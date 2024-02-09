@@ -3,7 +3,7 @@
     <VisualStyle displayFlags="showBehaviorModels showVisual" />
     <DefaultVisualManagerLoop/>
     
-    <DefaultAnimationLoop />
+    <DefaultAnimationLoop/>
     <BruteForceBroadPhase/>
     <BVHNarrowPhase/>
     <DefaultContactManager name="collision response" response="PenalityContactForceField" />
